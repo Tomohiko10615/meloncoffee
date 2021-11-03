@@ -1,0 +1,77 @@
+.card {
+    border-style: unset;
+}
+
+.logo {
+    font-family: Bonheur Royale;
+    font-size: 70px;
+    color: brown;
+}
+
+p, li {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+h5 {
+    font-family: Satisfy, Oxygen, serif;
+}
+
+.card-title {
+    font-size: 35px;
+}
+
+.copyright {
+    font-family: Assistant;
+    font-size: small;
+}
+
+footer {
+    font-family: Assistant;
+}
+
+.block1 {
+    margin-left: 170px;
+    margin-right: 170px;
+}
+
+#bold {
+    font-size: 28px;
+}
+
+.card-text {
+    text-align: left !important;
+}
+
+.card-body {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#landing {
+    background: linear-gradient(180deg, rgb(130, 234, 255) 44%, rgba(0,212,255,1) 100%);
+    text-align: left;
+    height: 382px;
+    margin-top: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.check:before {
+    content: 'check';
+    font-family: 'Material Icons';
+}
+
+.btn-primary {
+    background: linear-gradient(180deg, rgb(131, 222, 255) 1%, rgb(0, 140, 169) 100%);
+    border-color: rgb(0, 140, 169);
+}
+
+.btn-primary:hover {
+    border-color: rgb(0, 84, 100);
+}
+
+.container-fluid {
+    margin-left: 7em;
+}
