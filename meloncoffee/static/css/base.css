@@ -25,9 +25,6 @@ h5 {
     font-size: small;
 }
 
-footer {
-    font-family: Assistant;
-}
 
 .block1 {
     margin-left: 170px;
@@ -48,7 +45,7 @@ footer {
 }
 
 #landing {
-    background: linear-gradient(180deg, rgb(130, 234, 255) 44%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(180deg, #FFD4AE 44%, #FBB377 100%);
     text-align: left;
     height: 382px;
     margin-top: 30px;

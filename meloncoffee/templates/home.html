@@ -9,7 +9,6 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Satisfy&family=Assistant&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
       </head>
@@ -29,17 +28,16 @@
                     </ul>
                   </div>
                   <div class="d-flex me-5">
-                    <p class="me-4 my-auto">¿Ya tienes una cuenta?</p>
+                    <p class="me-4 my-auto copyright" style="font-size: 18px;">¿Ya tienes una cuenta?</p>
                     <button class="btn btn-outline-success my-auto me-5">Iniciar sesión</button>
-                  </div>
-                  
+                  </div>  
                 </div>
               </nav>
               <div class="card">
                 <div class="row g-0 block1">
                   <div class="card-body col-md-5 my-auto mx-auto">
                     <h5 class="card-title">Poesía Minimalista</h5><br>
-                    <p class="card-text">La poesía como un verso</p>
+                    <p class="card-text">La poesía como universo</p>
                     <p class="card-text">y las palabras como conceptos;</p>
                     <p class="card-text">el espacio puro:</p>
                     <p class="card-text" id="bold">¡escencia!</p>
@@ -73,6 +71,14 @@
                     </div>
                   </div>
                 </div>
+                <div class="card my-auto text-center" id="landing">
+                  <div class="my-auto">
+                    <p>Con la primera luz vi yo el mundo</p>
+                    <p>entre las suaves manos de mi madre.</p>
+                    <p>En sus ojos vi el cielo; en sus pupilas vi la luz,</p>
+                    <p>su sonrisa es un arcoiris y en su aliento hay calor.</p>
+                  </div>
+                </div>
                 <div class="card">
                   <div class="row g-0 block1">
                     <div class="card-body col-md-5">
@@ -90,21 +96,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="card text-center">
-                  <div class="card-body my-auto">
-                    <p>Con la primera luz vi yo el mundo</p>
-                    <p>entre las suaves manos de mi madre.</p>
-                    <p>En sus ojos vi el cielo; en sus pupilas vi la luz,</p>
-                    <p>sólo un grafito</p>
-                    <p>su sonrisa es un ??? y en su aliento hay calor.</p>
-                  </div>
-                </div>
+                
         </main>
     </body>
   <!-- Footer -->
   <footer
           class="text-center text-lg-start text-white"
-          style="background-color: rgba(0,212,255,1)"
+          style="background-color: #FBB377"
+          id="footer"
           >
     <!-- Grid container -->
     <div class="container p-4 pb-0">
@@ -114,10 +113,10 @@
         <div class="row">
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">
+            <h6 class="text-uppercase text-dark mb-4 font-weight-bold">
               Company name
             </h6>
-            <p class="copyright">
+            <p class="copyright text-dark">
               Here you can use rows and columns to organize your footer
               content. Lorem ipsum dolor sit amet, consectetur adipisicing
               elit.
@@ -129,17 +128,17 @@
 
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 copyright">
-            <h6 class="text-uppercase mb-4">Products</h6>
-            <p class="copyright">
+            <h6 class="text-uppercase mb-4 text-dark">Products</h6>
+            <p class="copyright text-dark">
               MDBootstrap
             </p>
-            <p class="copyright">
+            <p class="copyright text-dark">
               MDWordPress
             </p>
-            <p class="copyright">
+            <p class="copyright text-dark">
               BrandFlow
             </p>
-            <p class="copyright">
+            <p class="copyright text-dark">
               Bootstrap Angular
             </p>
           </div>
@@ -152,17 +151,17 @@
 
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 copyright">
-            <h6 class="text-uppercase mb-4">Contact</h6>
-            <p class="copyright"><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-            <p class="copyright"><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
-            <p class="copyright"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-            <p class="copyright"><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            <h6 class="text-uppercase mb-4 text-dark">Contact</h6>
+            <p class="copyright text-dark"><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+            <p class="copyright text-dark"><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+            <p class="copyright text-dark"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+            <p class="copyright text-dark"><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
           </div>
           <!-- Grid column -->
 
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+            <h6 class="text-uppercase text-dark mb-4 font-weight-bold">Follow us</h6>
 
             <!-- Facebook -->
             <a
@@ -225,22 +224,22 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="row">
+    <div class="row g-0">
       <div
          class="col-md p-3"
          style="background-color: rgba(0, 0, 0, 0.2)"
          >
-      <p class="float-start my-auto ms-5 copyright">Riwarqanchis Pirw</p>
+      <p class="float-start my-auto ms-5 copyright text-dark">Riwarqanchis Pirw</p>
       </div>
       
       <div
           class="col-md p-3 text-center"
           style="background-color: rgba(0, 0, 0, 0.2)"
           >
-        <p class="my-auto me-5 copyright">
+        <p class="my-auto me-5 copyright text-dark">
           © 2021 Copyright:
         
-        <a class="text-white copyright" href="https://meloncoffe.com/"
+        <a class="text-dark copyright text-dark" href="https://meloncoffe.com/"
           >meloncoffe.com</a
           ></p>
       </div>
@@ -248,17 +247,15 @@
       <div class="col-md p-3" style="background-color: rgba(0, 0, 0, 0.2)">
         <div class="row float-end">
           <div class="col">
-            <a class="text-white copyright" href="">Privacidad</a>
+            <a class="text-dark copyright" href="">Privacidad</a>
           </div>
           <div class="col">
-            <a class="text-white copyright" href="">Cookies</a>
+            <a class="text-dark copyright" href="">Cookies</a>
           </div>
           <div class="col">
-            <a class="text-white copyright me-5" href="">Términos</a>
+            <a class="text-dark copyright me-5" href="">Términos</a>
           </div>
         </div> 
-
-          
       </div>
   </div>
     
