@@ -27,8 +27,8 @@ h5 {
 
 
 .block1 {
-    margin-left: 170px;
-    margin-right: 170px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #bold {
@@ -71,4 +71,42 @@ ul {
 
 .container-fluid {
     margin-left: 7em;
+}
+
+.button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 6px 12px;
+    border: 1px solid #7da2ac;
+    border-radius: 8px;
+    background: #b2e8f6;
+    background: -webkit-gradient(linear, left top, left bottom, from(#b2e8f6), to(#7da2ac));
+    background: -moz-linear-gradient(top, #b2e8f6, #7da2ac);
+    background: linear-gradient(to bottom, #b2e8f6, #7da2ac);
+    font: normal normal 15px;
+    font-family: Life Savers;
+    color: #111111;
+    text-decoration: none;
+}
+
+a.button {
+    margin: 0 auto;
+}
+
+.button:hover,
+.button:focus {
+    border: 1px solid #b2e8f6;
+    background: #d6ffff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#d6ffff), to(#96c2ce));
+    background: -moz-linear-gradient(top, #d6ffff, #96c2ce);
+    background: linear-gradient(to bottom, #d6ffff, #96c2ce);
+    color: #111111;
+    text-decoration: none;
+}
+.button:active {
+    background: #7da2ac;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7da2ac), to(#7da2ac));
+    background: -moz-linear-gradient(top, #7da2ac, #7da2ac);
+    background: linear-gradient(to bottom, #7da2ac, #7da2ac);
 }

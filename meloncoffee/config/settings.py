@@ -132,5 +132,5 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 
 # Redirect after login or logout
-LOGIN_REDIRECT_URL = 'home' # new
+LOGIN_REDIRECT_URL = 'user' # new
 LOGOUT_REDIRECT_URL = 'home' # new

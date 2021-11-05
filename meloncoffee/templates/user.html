@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+    <div class="row g-0 block1">
+      <div class="card-body col-md-5 my-auto" style="text-align: center;">
+        <img src="{% static 'images/puertaesp.png' %}" class="img-fluid mx-auto my-auto d-block" alt="El Jardín de los Sueños" style="max-width: 70%;
+        height: auto;">
+        <a class="button mt-3" href="">Comprar</a>
+      </div>
+      <div class="card-body col-md-5" style="text-align: center;">
+        <img src="{% static 'images/jardinsue.png' %}" class="img-fluid mx-auto d-block" alt="El Jardín de los Sueños" style="max-width: 70%;
+        height: auto;">
+        <a class="button mt-3" href="">Comprar</a>
+      </div>
+    </div>
+    <a class="button my-3" href="">Ver muestra gratis</a>
+</div>
+{% endblock content %}
