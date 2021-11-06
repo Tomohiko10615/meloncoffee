@@ -79,6 +79,23 @@ def signup(request):
 def login(request):
     return render(request, "registration/login.html")
 
+def sample(request):
+    form = CustomUserCreationForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            first_name = request.POST['first_name']
+            second_name = request.POST['second_name']
+            phone = request.POST['phone']
+            birthday = request.POST['birthday']
+            email = request.POST['email']
+            subscribe(first_name, second_name, phone, birthday, email) 
+            messages.success(request, "Email received. thank You! ") # message
+            form.save()
+            return HttpResponseRedirect(reverse_lazy('login'))
+
+    return render(request, "registration/sample.html", {
+        'form': form,})
+
 """
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
