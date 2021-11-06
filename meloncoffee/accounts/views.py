@@ -98,6 +98,9 @@ def sample(request):
             messages.success(request, "Email received. thank You! ") # message
             form.save()
             return HttpResponseRedirect(reverse_lazy('login'))
+        else:
+            return render(request, "registration/signup.html", {
+        'form': form, 'failed': True})
 
     return render(request, "registration/sample.html", {
         'form': form,})
