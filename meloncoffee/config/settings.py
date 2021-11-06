@@ -144,4 +144,9 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'user' # new
 LOGOUT_REDIRECT_URL = 'home' # new
 
+# MAILCHIMP CREDENTIALS
+MAILCHIMP_API_KEY = "f020daf2c9bbecbd3dca6f4bc5a7c86d-us20"
+MAILCHIMP_DATA_CENTER = "s20"
+MAILCHIMP_EMAIL_LIST_ID = "6e4b639c77"
+
 django_heroku.settings(locals())
