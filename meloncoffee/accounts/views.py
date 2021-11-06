@@ -20,7 +20,7 @@ server = settings.MAILCHIMP_DATA_CENTER
 list_id = settings.MAILCHIMP_EMAIL_LIST_ID
 
 # Subscription Logic
-def subscribe(email):
+def subscribe(first_name, second_name, phone, birthday, email):
     """
      Contains code handling the communication to the mailchimp api
      to create a contact/member in an audience/list.
@@ -34,7 +34,11 @@ def subscribe(email):
 
     member_info = {
         "email_address": email,
-        "status": "subscribed",
+        "status": "pending",
+        'merge_fields': {
+            'FNAME': first_name,
+            'LNAME': second_name,
+        }
     }
 
     try:
@@ -54,14 +58,26 @@ def showform(request):
     return render(request, 'registration/signup.html', context)
 """
 
-"""
-def signup(request):
-    if request.method == "POST":
-        email = request.POST['email']
-        print(email)
-        messages.success(request, "Email received. thank You! ") # message
 
-    return render(request, "registration/signup.html")
+def signup(request):
+    form = CustomUserCreationForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            first_name = request.POST['first_name']
+            second_name = request.POST['second_name']
+            phone = request.POST['phone']
+            birthday = request.POST['birthday']
+            email = request.POST['email']
+            subscribe(first_name, second_name, phone, birthday, email) 
+            messages.success(request, "Email received. thank You! ") # message
+            form.save()
+            return HttpResponseRedirect(reverse_lazy('login'))
+
+    return render(request, "registration/signup.html", {
+        'form': form,})
+
+def login(request):
+    return render(request, "registration/login.html")
 
 """
 class SignUpView(CreateView):
@@ -74,3 +90,4 @@ class Sample(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registration/sample.html'
+"""
