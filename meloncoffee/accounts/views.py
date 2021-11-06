@@ -61,7 +61,9 @@ def showform(request):
 
 def signup(request):
     form = CustomUserCreationForm(request.POST)
+    print(form.errors)
     if request.method == "POST":
+        
         if form.is_valid():
             first_name = request.POST['first_name']
             second_name = request.POST['second_name']
@@ -72,9 +74,13 @@ def signup(request):
             messages.success(request, "Email received. thank You! ") # message
             form.save()
             return HttpResponseRedirect(reverse_lazy('login'))
+        else:
+            return render(request, "registration/signup.html", {
+        'form': form, 'failed': True})
 
     return render(request, "registration/signup.html", {
         'form': form,})
+    
 
 def login(request):
     return render(request, "registration/login.html")
