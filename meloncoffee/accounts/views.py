@@ -20,7 +20,7 @@ server = settings.MAILCHIMP_DATA_CENTER
 list_id = settings.MAILCHIMP_EMAIL_LIST_ID
 
 # Subscription Logic
-def subscribe(first_name, second_name, phone, birthday, email):
+def subscribe(first_name, second_name, phone, birthday, email, form):
     """
      Contains code handling the communication to the mailchimp api
      to create a contact/member in an audience/list.
@@ -44,6 +44,7 @@ def subscribe(first_name, second_name, phone, birthday, email):
     try:
         response = mailchimp.lists.add_list_member(list_id, member_info)
         print("response: {}".format(response))
+        form.save()
     except ApiClientError as error:
         print("An exception occurred: {}".format(error.text))
 
@@ -59,8 +60,11 @@ def showform(request):
 """
 
 
+
+
 def signup(request):
     form = CustomUserCreationForm(request.POST)
+    print("h")
     print(form.errors)
     if request.method == "POST":
         
@@ -70,10 +74,9 @@ def signup(request):
             phone = request.POST['phone']
             birthday = request.POST['birthday']
             email = request.POST['email']
-            subscribe(first_name, second_name, phone, birthday, email) 
+            subscribe(first_name, second_name, phone, birthday, email, form) 
             messages.success(request, "Email received. thank You! ") # message
-            form.save()
-            return HttpResponseRedirect(reverse_lazy('login'))
+            return render(request, "registration/login.html", { 'confirm': True, 'email': email })
         else:
             return render(request, "registration/signup.html", {
         'form': form, 'failed': True})
@@ -84,6 +87,9 @@ def signup(request):
 
 def login(request):
     return render(request, "registration/login.html")
+
+def confirm(request):
+    return render(request, "registration/confirm.html")
 
 def sample(request):
     form = CustomUserCreationForm(request.POST)
@@ -97,7 +103,7 @@ def sample(request):
             subscribe(first_name, second_name, phone, birthday, email) 
             messages.success(request, "Email received. thank You! ") # message
             form.save()
-            return HttpResponseRedirect(reverse_lazy('login'))
+            return HttpResponseRedirect(reverse_lazy('login'), { 'confirm': True, 'email': email })
         else:
             return render(request, "registration/signup.html", {
         'form': form, 'failed': True})

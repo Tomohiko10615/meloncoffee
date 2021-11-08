@@ -1,6 +1,10 @@
 {% extends 'basereg.html' %}
 {% block title %}Iniciar sesión{% endblock title %}
 {% block content %}
+{% if confirm %}
+<h2>Confirme su dirección de correo electrónico</h2>
+<p>Por favor, confirma tu dirección de correo electrónico {{ email }} para seguir disfrutando de nuestro contenido.</p>
+{% else %}
 <h2>Iniciar sesión</h2>
 <form method="post">
     {% csrf_token %}
@@ -9,7 +13,5 @@
     <br>
     <p>¿No tienes cuenta? <a href="{% url 'signup' %}">Regístrate</a></p>
 </form>
-
-
-
+{% endif %}
 {% endblock content %}

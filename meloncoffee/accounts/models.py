@@ -4,11 +4,18 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
+#from django.contrib.auth.models import User
+#User._meta.get_field('email')._unique = True
+
 class CustomUser(AbstractUser):
+    class Meta:
+        unique_together = ('email',)
     first_name = models.CharField(max_length=32)
     second_name = models.CharField(max_length=32)
     phone = models.PositiveIntegerField(null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
+
 
 """
 class CustomUser(models.Model):

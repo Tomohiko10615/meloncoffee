@@ -3,6 +3,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUser
 
+#from django.core.exceptions import ValidationError
+
 class DateInput(forms.DateInput):
     input_type = 'date'
 
@@ -26,6 +28,15 @@ class CustomUserCreationForm(UserCreationForm):
         self.fields['password1'].widget = forms.PasswordInput(attrs={'placeholder': 'Contraseña'})
         self.fields['password2'].widget = forms.PasswordInput(attrs={'placeholder': 'Confirmar contraseña'})
 
+    """
+    def clean(self):
+       email = self.cleaned_data.get('email')
+       if CustomUser.objects.filter(email=email).exists():
+            raise ValidationError("El email ingresado ya sido registrado")
+       return self.cleaned_data
+    """
+    
+
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
@@ -41,10 +52,13 @@ class CustomUserChangeForm(UserChangeForm):
         'password': forms.fields.TextInput(attrs={'placeholder': 'Contraseña'}),
     }
 
-    def __init__(self, *args, **kwargs):
-        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
-        self.fields['password1'].widget = forms.PasswordInput(attrs={'placeholder': 'Contraseña'})
-        self.fields['password2'].widget = forms.PasswordInput(attrs={'placeholder': 'Confirmar contraseña'})
+    """
+    def clean(self):
+       email = self.cleaned_data.get('email')
+       if CustomUser.objects.filter(email=email).exists():
+            raise ValidationError("El email ingresado ya sido registrado")
+       return self.cleaned_data
+    """
 
 """
 class FormContactForm(forms.ModelForm):
