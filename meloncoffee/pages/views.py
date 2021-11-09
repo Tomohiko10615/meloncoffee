@@ -7,3 +7,6 @@ class HomePageView(TemplateView):
 
 class LandingPageView(TemplateView):
     template_name = 'user.html'
+
+class JardinSueView(TemplateView):
+    template_name = 'jardinsue.html'

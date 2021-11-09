@@ -44,7 +44,6 @@ def subscribe(first_name, second_name, phone, birthday, email, form):
     try:
         response = mailchimp.lists.add_list_member(list_id, member_info)
         print("response: {}".format(response))
-        form.save()
     except ApiClientError as error:
         print("An exception occurred: {}".format(error.text))
 
@@ -76,6 +75,7 @@ def signup(request):
             email = request.POST['email']
             subscribe(first_name, second_name, phone, birthday, email, form) 
             messages.success(request, "Email received. thank You! ") # message
+            form.save()
             return render(request, "registration/login.html", { 'confirm': True, 'email': email })
         else:
             return render(request, "registration/signup.html", {

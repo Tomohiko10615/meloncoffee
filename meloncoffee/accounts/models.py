@@ -15,6 +15,8 @@ class CustomUser(AbstractUser):
     second_name = models.CharField(max_length=32)
     phone = models.PositiveIntegerField(null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
+    
+    #is_active = models.BooleanField(default=False)
 
 
 """
