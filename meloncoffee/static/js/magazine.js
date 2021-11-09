@@ -76,7 +76,6 @@ function zoomTo(event) {
 // Load regions
 
 function loadRegions(page, element, pages_url) {
-
 	$.getJSON(pages_url+page+'-regions.json').
 		done(function(data) {
 
@@ -179,7 +178,7 @@ function loadLargePage(page, pageElement, pages_url) {
 	// Loadnew page
 	
 	img.attr('src', pages_url +  page + '-large.jpg');
-	
+
 }
 
 // Load small page

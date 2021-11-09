@@ -1,7 +1,7 @@
 {% load static %}
 <html lang="en"> <!--<![endif]-->
 <head>
-<title>Using turn.js and the new zoom feature</title>
+<title>Jardín de los Sueños</title>
 <meta name="viewport" content="width = 1050, user-scalable = no" />
 <script type="text/javascript" src="{% static 'extras/jquery.min.1.7.js' %}"></script>
 <script type="text/javascript" src="{% static 'extras/modernizr.2.5.3.min.js' %}"></script>
@@ -167,9 +167,10 @@ function loadApp() {
 				missing: function (event, pages) {
 
 					// Add pages that aren't in the magazine
+					pages_url = "{% static 'pages/' %}";
 
 					for (var i = 0; i < pages.length; i++)
-						addPage(pages[i], $(this));
+						addPage(pages[i], $(this), pages_url);
 
 				}
 			}
@@ -201,12 +202,14 @@ function loadApp() {
 
 			},
 
-			resize: function(event, scale, page, pageElement) {
+			
 
+			resize: function(event, scale, page, pageElement) {
+				pages_url = "{% static 'pages/' %}";
 				if (scale==1)
-					loadSmallPage(page, pageElement);
+					loadSmallPage(page, pageElement, pages_url);
 				else
-					loadLargePage(page, pageElement);
+					loadLargePage(page, pageElement, pages_url);
 
 			},
 
