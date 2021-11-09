@@ -110,3 +110,48 @@ a.button {
     background: -moz-linear-gradient(top, #7da2ac, #7da2ac);
     background: linear-gradient(to bottom, #7da2ac, #7da2ac);
 }
+
+.social-footer {
+    padding: 1rem;
+    background: #8a8a8a;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: block;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .social-footer .social-footer-icons li:last-of-type {
+    margin-right: 0;
+  }
+  
+  .social-footer .social-footer-icons .fa {
+    font-size: 1.3rem;
+    color: #fefefe;
+  }
+  
+  .social-footer .social-footer-icons .fa:hover {
+    color: #4a4a4a;
+    transition: color 0.3s ease-in;
+  }
+  
+  .table {
+	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
+}
+
+ul {
+    padding: 0;
+}
+
+ul#horizontal-list {
+	list-style: none;
+	}
+	ul#horizontal-list li {
+		display: inline;
+        float: center;
+	}
