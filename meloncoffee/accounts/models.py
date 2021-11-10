@@ -9,12 +9,11 @@ from django.db import models
 #User._meta.get_field('email')._unique = True
 
 class CustomUser(AbstractUser):
-    class Meta:
-        unique_together = ('email',)
     first_name = models.CharField(max_length=32)
     second_name = models.CharField(max_length=32)
     phone = models.PositiveIntegerField(null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
+    email = models.EmailField(max_length=50, unique=True, error_messages={'unique':"Este email ya ha sido registrado."})
     
     #is_active = models.BooleanField(default=False)
 

@@ -5,6 +5,12 @@ from .models import CustomUser
 
 #from django.core.exceptions import ValidationError
 
+my_default_errors = {
+    'required': 'This field is required',
+    'invalid': 'Enter a valid value',
+    'duplicated': 'El email ingresado ya ha sido registrado',
+}
+
 class DateInput(forms.DateInput):
     input_type = 'date'
 
@@ -22,6 +28,7 @@ class CustomUserCreationForm(UserCreationForm):
         'birthday': forms.fields.DateInput(attrs={'placeholder': 'Fecha de nacimiento', 'onblur': "(this.type='text')", 'onfocus': '(this.type="date")'}),
         'password': forms.fields.TextInput(attrs={'placeholder': 'Contraseña'}),
     }
+
 
     def __init__(self, *args, **kwargs):
         super(CustomUserCreationForm, self).__init__(*args, **kwargs)
