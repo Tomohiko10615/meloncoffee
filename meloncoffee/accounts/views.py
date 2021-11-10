@@ -13,6 +13,7 @@ from django.conf import settings
 from mailchimp_marketing import Client
 from mailchimp_marketing.api_client import ApiClientError
 
+from verify_email.email_handler import send_verification_email
 
 # Mailchimp Settings
 api_key = settings.MAILCHIMP_API_KEY
@@ -73,9 +74,9 @@ def signup(request):
             phone = request.POST['phone']
             birthday = request.POST['birthday']
             email = request.POST['email']
-            subscribe(first_name, second_name, phone, birthday, email, form) 
+             
             messages.success(request, "Email received. thank You! ") # message
-            form.save()
+            send_verification_email(request, form)
             return render(request, "registration/login.html", { 'confirm': True, 'email': email })
         else:
             return render(request, "registration/signup.html", {

@@ -25,4 +25,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('user/', TemplateView.as_view(template_name='user.html'), name='user'),
     path('user/jardinsue/', TemplateView.as_view(template_name='jardinsue.html'), name='jardinsue'),
+    path('verification/', include('verify_email.urls')),	
 ]

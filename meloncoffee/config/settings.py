@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import django_heroku
 from pathlib import Path
+import envvar
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages',
     'accounts',
+    'verify_email',
 ]
 
 MIDDLEWARE = [
@@ -144,9 +146,20 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'user' # new
 LOGOUT_REDIRECT_URL = 'home' # new
 
+LOGIN_URL = 'user'
+
 # MAILCHIMP CREDENTIALS
-MAILCHIMP_API_KEY = "f020daf2c9bbecbd3dca6f4bc5a7c86d-us20"
+MAILCHIMP_API_KEY = envvar.mcapikey
 MAILCHIMP_DATA_CENTER = "us20"
 MAILCHIMP_EMAIL_LIST_ID = "6e4b639c77"
 
 django_heroku.settings(locals())
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'Pasteblock2021@gmail.com'
+EMAIL_HOST_PASSWORD = envvar.password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
